@@ -59,6 +59,8 @@ int parent(heap* h,int i){
 		 proclateUpward(h,p);
 	 }
  }
+// recursive function to go down up to leaf in array
+
  void proclateDown(heap* h,int i){
 	int l,r,min;
 	int temp;
@@ -116,5 +118,6 @@ int main(){ int i;
 	insert(h,0);
 	insert(h,0);
 	insert(h,1);
+        insert(h,2);
 	for(i=0;i<12;i++){printf("  %d",deleMin(h));}
 }
