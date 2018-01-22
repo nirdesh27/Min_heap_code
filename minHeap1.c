@@ -107,10 +107,10 @@ int isEmpty(heap *h){
 int main(){ int i;
 	heap* h=createHeap(100);
 	insert(h,13);
-	insert(h,6);
-	insert(h,9);
+	insert(h,60);
+	insert(h,90);
 	insert(h,2);insert(h,50);
-	insert(h,12);
+	insert(h,120);
 	insert(h,10);
 	insert(h,5);
 	insert(h,3);
