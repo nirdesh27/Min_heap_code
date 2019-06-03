@@ -59,8 +59,8 @@ int parent(heap* h,int i){
 		 proclateUpward(h,p);
 	 }
  }
-// recursive function to go down up to leaf in array
 
+// recursive function to go down up to leaf in array
  void proclateDown(heap* h,int i){
 	int l,r,min;
 	int temp;
