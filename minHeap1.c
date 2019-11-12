@@ -7,6 +7,12 @@ typedef struct heap{
 	int capacity;
 	
 }heap;
+
+/**
+ * createHeap -- build a heap and return a heap reference 
+ * @param {capacity} <int> capacity of heap
+ * @return {heap*} return heap*
+ */
 heap* createHeap(int capacity){
 	heap* h=(heap*)malloc(sizeof(heap));
 	h->count=0;
@@ -24,6 +30,12 @@ int deleMin(heap* h);
 int isEmpty(heap *h);
 void destroyHeap(heap* h);
 
+/**
+ * insert -- insert a data into the heap node 
+ * @param {h} <heap*> reference to heap 
+ * @param {data} <int> ineter data to be inserted into node 
+ * @return {int} return int
+ */
 int insert(heap* h,int data){
 	int i;h->count++;
 	i=h->count-1;
@@ -34,21 +46,46 @@ int insert(heap* h,int data){
 	h->array[i]=data;
     proclateUpward( h,i);
 }
+/**
+ * leftChild -- find a left child 
+ * @param {h} <heap*> reference to heap 
+ * @param {i} <int> index of array 
+ * @return {int} return int
+ */
 int leftChild(heap* h,int i){
 	int left=2*i+1;
 	if(left>= h->count) return -1;
 	return left;
 }
+/**
+ * rightChild -- find a right child 
+ * @param {h} <heap*> reference to heap 
+ * @param {i} <int> index of array 
+ * @return {int} return int
+ */
 int rightChild(heap* h,int i){
 	int right= 2*i+2;
 	if(right >=h->count) return -1;
 	return right;
 }
+/**
+ * parent -- find a parent 
+ * @param {h} <heap*> reference to heap 
+ * @param {i} <int> index of array 
+ * @return {int} return int
+ */
 int parent(heap* h,int i){
 	if(i<=0|| i>= h->count) return -1;
 	return (i-1)/2;
 	
 }
+
+/**
+ * proclateUpward -- Heapify the tree while going up
+ * @param {h} <heap*> reference to heap 
+ * @param {i} <int> index of array where we start going up
+ * @return {void} return void
+ */
  void proclateUpward(heap* h,int i){
 	 int p=parent(h,i); int temp;
 	 if(p== -1) return ;
@@ -60,7 +97,13 @@ int parent(heap* h,int i){
 	 }
  }
 
-// recursive function to go down up to leaf in array
+
+/**
+ * proclateDown -- Heapify the tree while going down
+ * @param {h} <heap*> reference to heap 
+ * @param {i} <int> index of array of root node
+ * @return {void} return void
+ */
  void proclateDown(heap* h,int i){
 	int l,r,min;
 	int temp;
